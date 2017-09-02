@@ -34,23 +34,27 @@ public class GeneralMergeSort {
 			merge(arr, tmp, left, center + 1, right);
 		}
 	}
-	public static<T extends Comparable<? super T>> void merge(T[] arr, T[] tmp, int left, int right,int rightEnd){
-		int leftEnd = right - 1;
-        int k = left;
-        int num = rightEnd - left + 1;
-
-        while(left <= leftEnd && right <= rightEnd)
-            if(arr[left].compareTo(arr[right])<=0)
-                tmp[k++] = arr[left++];
-            else
-                tmp[k++] = arr[right++];
-
-        while(left <= leftEnd)    
-            tmp[k++] = arr[left++];
-
-        while(right <= rightEnd) 
-            tmp[k++] = arr[right++];
-        for(int i = 0; i < num; i++, rightEnd--)
-            arr[rightEnd] = tmp[rightEnd];
+	public static<T extends Comparable<? super T>> void merge(T[] arr, T[] tmp, int start, int middle,int end){
+		int leftEnd = middle - 1;
+		int index = start;
+		int leftTmp = start;
+		
+		while ( start <= leftEnd && middle <= end  ) {
+			if ( arr[start].compareTo( arr[middle] ) <= 0 )
+				tmp[ index++ ] = arr[ start++ ];
+			else 
+				tmp[ index++ ] = arr[ middle++ ];
+		}
+		
+		//copy the rest element of the left half subarray.
+		while ( start <= leftEnd ) 
+			tmp[ index++ ] = arr[ start++ ];
+		//copy the rest elements of the right half subarray. (only one loop will be execute)
+		while ( middle <= end ) 
+			tmp[ index++ ] = arr[ middle++ ];
+		
+		//copy the tmp back cause we need to change the arr array items.
+		for ( ; end >= leftTmp; end-- )
+			arr[end] = tmp[end];
 	}
 }

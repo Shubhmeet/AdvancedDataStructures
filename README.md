@@ -13,3 +13,5 @@ LargestElementLessthenX.java : Find the largest number in sorted array which is 
 RearrangePostiveNegative.java : Rearrange the elements of the array such that all the negatives are followed by positive maintaing their relative order with each other in O(nlogn) and o(1) space
 
 kMissingNumbers.java : Find the k missing numbers in sorted array in O(k+logn) time
+
+Fibonacci.java : compute the nth Fibonacci number in O(logn ) time for Big Integers , improving RT from O(n)

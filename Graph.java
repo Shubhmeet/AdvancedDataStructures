@@ -1,4 +1,4 @@
-package cs6301.g24;
+package cs6326.g24;
 
 import java.util.Iterator;
 	import java.util.LinkedList;
@@ -17,6 +17,7 @@ import java.util.Iterator;
 
 	    public static class Vertex implements Iterable<Edge> {
 		int name; // name of the vertex
+		boolean seen;
 		List<Edge> adj, revAdj; // adjacency list; use LinkedList or ArrayList
 
 		/**
@@ -26,6 +27,7 @@ import java.util.Iterator;
 		 *            : int - name of the vertex
 		 */
 		Vertex(int n) {
+			seen=false;
 		    name = n;
 		    adj = new LinkedList<Edge>();
 		    revAdj = new LinkedList<Edge>();   /* only for directed graphs */
